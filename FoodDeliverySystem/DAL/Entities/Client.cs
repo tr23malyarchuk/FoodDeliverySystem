@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Catalog.DAL.Entities
 {
-    public class Client
+    public class Client : User
     {
-        public int Id { get; set; }
         public string Address { get; set; }
         public string CreditCard { get; set; }
 
-        public User User { get; set; }
-        public IEnumerable<Order> Orders { get; set; }
     }
 }

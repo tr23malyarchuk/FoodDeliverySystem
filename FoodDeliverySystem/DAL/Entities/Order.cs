@@ -12,6 +12,5 @@ namespace Catalog.DAL.Entities
         public int ClientId { get; set; }
         public string Status { get; set; }
 
-        public Client Client { get; set; }
     }
 }
