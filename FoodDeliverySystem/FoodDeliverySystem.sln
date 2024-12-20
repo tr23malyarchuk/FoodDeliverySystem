@@ -3,11 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{80FFB771-5BCA-40E3-89DE-684ABFEC72F2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{91C362C7-BC8F-47F9-8EFE-237F4E664241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{13542557-0659-405F-9C9A-A0788AB9266F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.Tests", "DAL.Tests\DAL.Tests.csproj", "{F215916A-C2D1-4BF4-9B1C-55829C166435}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13542557-0659-405F-9C9A-A0788AB9266F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13542557-0659-405F-9C9A-A0788AB9266F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13542557-0659-405F-9C9A-A0788AB9266F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13542557-0659-405F-9C9A-A0788AB9266F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F215916A-C2D1-4BF4-9B1C-55829C166435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F215916A-C2D1-4BF4-9B1C-55829C166435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F215916A-C2D1-4BF4-9B1C-55829C166435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F215916A-C2D1-4BF4-9B1C-55829C166435}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13542557-0659-405F-9C9A-A0788AB9266F} = {91C362C7-BC8F-47F9-8EFE-237F4E664241}
+		{F215916A-C2D1-4BF4-9B1C-55829C166435} = {91C362C7-BC8F-47F9-8EFE-237F4E664241}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E5AF5EE-A3E5-44B0-9DAC-5CAB27F58CDB}
