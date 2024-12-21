@@ -6,7 +6,8 @@ namespace Catalog.DAL.Repositories.Impl
 {
     public class OrderRepository : BaseRepository<Order>, IOrderRepository
     {
-        internal OrderRepository(FoodDeliverySystemContext context) : base(context)
+        public OrderRepository(FoodDeliverySystemContext context)
+            : base(context)
         {
         }
 

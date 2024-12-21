@@ -2,21 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Catalog.DAL.Entities;
 using Catalog.DAL.EF;
-using Catalog.DAL.Repositories.Impl;
 
-public class OrderRepositoryTests
+public class BaseRepositoryUnitTests
 {
-    private Mock<FoodDeliverySystemContext> _mockContext;
-    private Mock<DbSet<Order>> _mockDbSet;
-    private OrderRepository _orderRepository;
-
-    public OrderRepositoryTests()
-    {
-        _mockContext = new Mock<FoodDeliverySystemContext>();
-        _mockDbSet = new Mock<DbSet<Order>>();
-        _mockContext.Setup(c => c.Set<Order>()).Returns(_mockDbSet.Object);
-    }
-
     [Fact]
     public void Create_InputOrderInstance_CalledAddMethodOfDBSetWithOrderInstance()
     {
@@ -30,7 +18,7 @@ public class OrderRepositoryTests
                   .Setup(context => context.Set<Order>())
                   .Returns(mockDbSet.Object);
 
-        var repository = new TestOrderRepository(mockContext.Object);
+        var repository = new TestBaseRepository(mockContext.Object);
         Order expectedOrder = new Mock<Order>().Object;
 
         //Act
@@ -60,7 +48,7 @@ public class OrderRepositoryTests
                  .Find(expectedOrder.Id))
                  .Returns(expectedOrder);
 
-        var repository = new TestOrderRepository(mockContext.Object);
+        var repository = new TestBaseRepository(mockContext.Object);
 
         //Act
         var actualStreet = repository.Get(expectedOrder.Id);
@@ -88,7 +76,7 @@ public class OrderRepositoryTests
                  .Set<Order>())
                  .Returns(mockDbSet.Object);
 
-        var repository = new TestOrderRepository(mockContext.Object);
+        var repository = new TestBaseRepository(mockContext.Object);
         Order expectedOrder = new Order() { Id = 1 };
 
         mockDbSet.Setup(mock => mock.Find(expectedOrder.Id))

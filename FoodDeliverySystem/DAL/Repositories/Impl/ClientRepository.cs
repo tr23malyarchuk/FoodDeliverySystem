@@ -7,8 +7,8 @@ namespace Catalog.DAL.Repositories.Impl
     public class ClientRepository
         : BaseRepository<Client>, IClientRepository
     {
-        internal ClientRepository(FoodDeliverySystemContext context)
-        : base(context)
+        public ClientRepository(FoodDeliverySystemContext context)
+            : base(context)
         {
         }
     }
