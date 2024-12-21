@@ -7,8 +7,8 @@ namespace Catalog.DAL.Repositories.Impl
     public class UserRepository
         : BaseRepository<User>, IUserRepository
     {
-        internal UserRepository(FoodDeliverySystemContext context)
-        : base(context)
+        public UserRepository(FoodDeliverySystemContext context)
+            : base(context)
         {
         }
     }
