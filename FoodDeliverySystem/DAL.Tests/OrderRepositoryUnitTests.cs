@@ -32,8 +32,8 @@ public class OrderRepositoryUnitTests
     public void GetOrdersByStatus_ValidStatus_ReturnsCorrectOrders()
     {
         // Arrange
-        var mockRepository = new Mock<IOrderRepository>();
-        mockRepository.Setup(repo => repo.GetOrdersByStatus("Completed"))
+        var mockRepo = new Mock<IOrderRepository>();
+        mockRepo.Setup(repo => repo.GetOrdersByStatus("Completed"))
                       .Returns(new List<Order>
                       {
                         new Order { Id = 1, Status = "Completed" },
@@ -41,7 +41,7 @@ public class OrderRepositoryUnitTests
                       });
 
         // Act
-        var result = mockRepository.Object.GetOrdersByStatus("Completed");
+        var result = mockRepo.Object.GetOrdersByStatus("Completed");
 
         // Assert
         Assert.Equal(2, result.Count());
@@ -69,6 +69,7 @@ public class OrderRepositoryUnitTests
     [Fact]
     public void GetOrdersByTotalAmountGreaterThan_InputIsValid_ReturnsCorrectOrders()
     {
+        // Arrange
         var orders = new List<Order>
         {
             new Order { Id = 1, TotalAmount = 150 },
@@ -79,8 +80,10 @@ public class OrderRepositoryUnitTests
         mockRepo.Setup(r => r.GetOrdersByTotalAmountGreaterThan(100))
                 .Returns(orders.Where(o => o.TotalAmount > 100));
 
+        // Act
         var result = mockRepo.Object.GetOrdersByTotalAmountGreaterThan(100);
 
+        // Assert
         Assert.Single(result);
     }
 }
