@@ -11,24 +11,25 @@ namespace Catalog.DAL.Repositories.Impl
         {
         }
 
-        public IEnumerable<Order> GetOrdersByClientId(int clientId)
+        public IEnumerable<Order> GetOrdersByClientId(int clientId, int pageNumber, int pageSize)
         {
-            return Find(order => order.ClientId == clientId);
+            return Find(order => order.ClientId == clientId, pageNumber, pageSize);
         }
 
-        public IEnumerable<Order> GetOrdersByStatus(string status)
+        public IEnumerable<Order> GetOrdersByStatus(string status, int pageNumber, int pageSize)
         {
-            return Find(order => order.Status.Equals(status, StringComparison.OrdinalIgnoreCase));
+            return Find(order => order.Status.Equals(status, StringComparison.OrdinalIgnoreCase), pageNumber, pageSize);
         }
 
-        public IEnumerable<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate, int pageNumber, int pageSize)
         {
-            return Find(order => order.OrderDate >= startDate && order.OrderDate <= endDate);
+            return Find(order => order.OrderDate >= startDate && order.OrderDate <= endDate, pageNumber, pageSize);
         }
 
-        public IEnumerable<Order> GetOrdersByTotalAmountGreaterThan(double amount)
+        public IEnumerable<Order> GetOrdersByTotalAmountGreaterThan(double amount, int pageNumber, int pageSize)
         {
-            return Find(order => order.TotalAmount > amount);
+            return Find(order => order.TotalAmount > amount, pageNumber, pageSize);
         }
+
     }
 }

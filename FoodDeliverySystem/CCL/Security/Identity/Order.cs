@@ -1,4 +1,4 @@
-﻿namespace Catalog.DAL.Entities
+﻿namespace Catalog.Security.Identity
 {
     public class Order
     {

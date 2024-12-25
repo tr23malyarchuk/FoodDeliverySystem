@@ -43,19 +43,19 @@ public class BaseRepositoryUnitTests
                  .Setup(context => context.Set<Order>())
                  .Returns(mockDbSet.Object);
 
-        Order expectedOrder = new Order() { Id = 1 };
+        Order expectedOrder = new Order() { OrderId = 1 };
         mockDbSet.Setup(mock => mock
-                 .Find(expectedOrder.Id))
+                 .Find(expectedOrder.OrderId))
                  .Returns(expectedOrder);
 
         var repository = new TestBaseRepository(mockContext.Object);
 
         //Act
-        var actualStreet = repository.Get(expectedOrder.Id);
+        var actualStreet = repository.Get(expectedOrder.OrderId);
 
         // Assert
         mockDbSet.Verify(dbSet => dbSet
-                 .Find(expectedOrder.Id), Times
+                 .Find(expectedOrder.OrderId), Times
                  .Once());
 
         Assert.Equal(expectedOrder, actualStreet);
@@ -77,17 +77,17 @@ public class BaseRepositoryUnitTests
                  .Returns(mockDbSet.Object);
 
         var repository = new TestBaseRepository(mockContext.Object);
-        Order expectedOrder = new Order() { Id = 1 };
+        Order expectedOrder = new Order() { OrderId = 1 };
 
-        mockDbSet.Setup(mock => mock.Find(expectedOrder.Id))
+        mockDbSet.Setup(mock => mock.Find(expectedOrder.OrderId))
                  .Returns(expectedOrder);
 
         //Act
-        repository.Delete(expectedOrder.Id);
+        repository.Delete(expectedOrder.OrderId);
 
         // Assert
         mockDbSet.Verify(dbSet => dbSet
-                 .Find(expectedOrder.Id), Times
+                 .Find(expectedOrder.OrderId), Times
                  .Once());
 
         mockDbSet.Verify(dbSet => dbSet

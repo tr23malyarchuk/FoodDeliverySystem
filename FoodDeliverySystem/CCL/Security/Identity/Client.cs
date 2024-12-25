@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CCL.Security.Identity
+﻿namespace Catalog.Security.Identity
 {
-    internal class Client
+    public abstract class Client
     {
+        public Client(int clientId, string name, int FoodDeliverySystemId)
+        {
+            ClientId = clientId;
+            Name = name;
+            FoodDeliverySystemID = FoodDeliverySystemId;
+        }
+
+        public int ClientId { get; }
+        public string Name { get; }
+        public int FoodDeliverySystemID { get; }
     }
 }

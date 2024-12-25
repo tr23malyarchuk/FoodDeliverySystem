@@ -28,9 +28,13 @@ namespace Catalog.DAL.Repositories.Impl
             }
         }
 
-        public IEnumerable<T> Find(Func<T, bool> predicate)
+        public IEnumerable<T> Find(Func<T, bool> predicate, int pageNumber, int pageSize)
         {
-            return _set.Where(predicate).ToList();
+            return _set
+                .Where(predicate)  // Apply the filter
+                .Skip((pageNumber - 1) * pageSize)  // Skip items for pagination
+                .Take(pageSize)  // Take the page size
+                .ToList();  // Return as a list
         }
 
         public T Get(int id)
@@ -46,6 +50,11 @@ namespace Catalog.DAL.Repositories.Impl
         public void Update(T item)
         {
             _context.Entry(item).State = EntityState.Modified;
+        }
+
+        public List<T> Where(Func<T, bool> predicate)
+        {
+            return _context.Set<T>().Where(predicate).ToList();
         }
     }
 }
