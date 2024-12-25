@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using Catalog.BLL.DTO;
+﻿using Catalog.BLL.DTO;
 using Catalog.BLL.Services.Interfaces;
 using Catalog.CCL.Security;
 using Catalog.DAL.UnitOfWork;
-using Catalog.Security.Identity;
-using System.Linq;
 
 namespace Catalog.BLL.Services.Impl
 {
