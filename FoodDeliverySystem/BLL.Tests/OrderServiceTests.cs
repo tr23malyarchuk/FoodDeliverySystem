@@ -10,7 +10,6 @@ namespace BLL.Tests
     public class OrderServiceTests
     {
         [Fact]
-        // throws an ArgumentNullException when a null IUnitOfWork is passed.
         public void Constr_InputNull_ThrowArgumentNullException()
         {
             // Arrange
@@ -23,7 +22,6 @@ namespace BLL.Tests
         }
 
         [Fact]
-        // throws an InvalidOperationException when no user is set in the security context.
         public void GetOrders_NoUserInContext_ThrowInvalidOperationException()
         {
             // Arrange
@@ -36,7 +34,6 @@ namespace BLL.Tests
         }
 
         [Fact]
-        // mocks the data repository and the user context to verify the correct mapping
         public void GetOrders_OrderFromDAL_CorrectMappingToOrderDTO()
         {
             // Arrange
@@ -57,7 +54,7 @@ namespace BLL.Tests
 
             mockUnitOfWork.Setup(uow => uow.Orders).Returns(mockOrderRepository.Object);
 
-            var mockUser = new Catalog.Security.Identity.User(1, "user1", 1);
+            var mockUser = new Catalog.Security.Identity.Client(1, "user1", 1);
             SecurityContext.SetUser(mockUser);
 
             var orderService = new OrderService(mockUnitOfWork.Object);

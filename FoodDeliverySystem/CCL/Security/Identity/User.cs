@@ -1,9 +1,9 @@
 ﻿namespace Catalog.Security.Identity
 {
-    public class User : Client
+    public class Client : User
     {
-        public User(int clientId, string name, int foodDeliverySystemId)
-            : base(clientId, name, foodDeliverySystemId)
+        public Client(int userId, string name, int foodDeliverySystemId)
+            : base(userId, name, foodDeliverySystemId)
         {
         }
     }

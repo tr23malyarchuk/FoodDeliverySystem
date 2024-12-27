@@ -31,10 +31,10 @@ namespace Catalog.DAL.Repositories.Impl
         public IEnumerable<T> Find(Func<T, bool> predicate, int pageNumber, int pageSize)
         {
             return _set
-                .Where(predicate)  // Apply the filter
-                .Skip((pageNumber - 1) * pageSize)  // Skip items for pagination
-                .Take(pageSize)  // Take the page size
-                .ToList();  // Return as a list
+                .Where(predicate)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
 
         public T Get(int id)
