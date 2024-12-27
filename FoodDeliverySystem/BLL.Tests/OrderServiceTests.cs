@@ -15,7 +15,8 @@ namespace BLL.Tests
             // Arrange
             IUnitOfWork nullUnitOfWork = null;
 
-            // Act, Assert
+            // Act
+            // Assert
             Assert.Throws<ArgumentNullException>(
                 () => new OrderService(nullUnitOfWork)
             );
@@ -29,7 +30,8 @@ namespace BLL.Tests
             var mockUnitOfWork = new Mock<IUnitOfWork>();
             var orderService = new OrderService(mockUnitOfWork.Object);
 
-            // Act & Assert
+            // Act
+            // Assert
             Assert.Throws<InvalidOperationException>(() => orderService.GetOrders(1));
         }
 

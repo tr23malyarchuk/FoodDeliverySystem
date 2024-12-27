@@ -4,14 +4,14 @@ namespace Catalog.CCL.Security
 {
     public static class SecurityContext
     {
-        static Client _user = null;
+        static User _user = null;
 
-        public static Client GetUser()
+        public static User GetUser()
         {
             return _user;
         }
 
-        public static void SetUser(Client user)
+        public static void SetUser(User user)
         {
             _user = user;
         }

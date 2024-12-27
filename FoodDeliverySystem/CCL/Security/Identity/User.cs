@@ -1,10 +1,16 @@
 ﻿namespace Catalog.Security.Identity
 {
-    public class Client : User
+    public abstract class User
     {
-        public Client(int userId, string name, int foodDeliverySystemId)
-            : base(userId, name, foodDeliverySystemId)
+        public User(int userId, string name, int FoodDeliverySystemId)
         {
+            UserId = userId;
+            Name = name;
+            FoodDeliverySystemID = FoodDeliverySystemId;
         }
+
+        public int UserId { get; }
+        public string Name { get; }
+        public int FoodDeliverySystemID { get; }
     }
 }
