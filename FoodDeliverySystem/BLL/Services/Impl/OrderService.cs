@@ -12,7 +12,11 @@ namespace Catalog.BLL.Services.Impl
 
         public OrderService(IUnitOfWork unitOfWork)
         {
-            _database = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            if (unitOfWork == null)
+            {
+                throw new ArgumentNullException(nameof(unitOfWork));
+            }
+            _database = unitOfWork;
         }
 
         public IEnumerable<OrderDTO> GetOrders(int pageNumber)
